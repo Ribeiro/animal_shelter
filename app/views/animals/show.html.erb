@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @animal.name %>
+</p>
+
+<p>
+  <strong>Idade:</strong>
+  <%= @animal.age %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @animal.description %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @animal.family %>
+</p>
+
+<p>
+  <strong>Contato:</strong>
+  <%= @animal.contact %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @animal.contact %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= link_to image_tag(@animal.image.url, class: 'media-object'), @animal.image.url, target: '_blank' %>
+</p>
+
+<p>
+  <strong>Adotado?:</strong>
+  <%= @animal.adopted %>
+</p>
+
+
+<%= link_to 'Editar', edit_animal_path(@animal), class:"btn btn-primary" %>
+<%= link_to 'Voltar', animals_path, class:"btn btn-info" %>

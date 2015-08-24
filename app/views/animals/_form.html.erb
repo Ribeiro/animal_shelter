@@ -1,0 +1,47 @@
+<div class="container">
+<%= form_for(@animal) do |f| %>
+  <% if @animal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+
+      <ul>
+      <% @animal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'Nome:' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label 'Idade:' %><br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label 'Descricao:' %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label 'Tipo:' %><br>
+    <%= f.select :family, Animal.families.keys %>
+  </div>
+  <div class="field">
+    <%= f.label 'Contato:' %><br>
+    <%= f.text_area :contact %>
+  </div>
+  <div class="field" id="imageInput">
+    <%= f.label 'Foto:' %><br>
+    <%= f.file_field :image %>
+  </div>
+    <div class="field">
+    <%= f.label 'Adotado?:' %> <br />
+    <%= f.check_box :adopted %> <br />
+  </div>
+  <div class="actions">
+    <%= f.submit :Salvar, class: 'btn btn-success'%>
+  </div>
+<% end %>
+</div>
