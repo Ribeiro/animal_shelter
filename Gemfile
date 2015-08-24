@@ -28,6 +28,8 @@ gem "paperclip", "~> 3.0"
 
 gem "devise"
 
+gem 'toastr-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
