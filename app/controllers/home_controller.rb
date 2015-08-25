@@ -3,8 +3,12 @@ class HomeController < ApplicationController
 	before_action :set_animal, only: [:show]
 
 	def index
-    	@animals = Animal.where(:adopted => false)
-  	end
+    	if params[:search]
+      		@animals = Animal.search(params[:search]).order("created_at DESC")
+    	else
+      		@animals = Animal.where(:adopted => false)
+      	end
+    end
 
   	def show
   	end

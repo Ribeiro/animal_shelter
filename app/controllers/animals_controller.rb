@@ -3,9 +3,18 @@ class AnimalsController < ApplicationController
 
   # GET /animals
   # GET /animals.json
-  def index
-    @animals = Animal.all.where(:user_id => current_user.id)
-  end
+
+  #def index
+    #@animals = Animal.all.where(:user_id => current_user.id)
+  #end
+
+    def index
+      if params[:search]
+          @animals = Animal.search(params[:search]).where(:user_id => current_user.id).order("created_at DESC")
+      else
+          @animals = Animal.all.where(:user_id => current_user.id)
+        end
+    end
 
   # GET /animals/1
   # GET /animals/1.json
