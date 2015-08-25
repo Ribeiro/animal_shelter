@@ -1,11 +1,10 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   # GET /animals
   # GET /animals.json
   def index
-    @animals = Animal.all
+    @animals = Animal.all.where(:user_id => current_user.id)
   end
 
   # GET /animals/1
@@ -26,6 +25,7 @@ class AnimalsController < ApplicationController
   # POST /animals.json
   def create
     @animal = Animal.new(animal_params)
+    @animal.user = current_user
 
     respond_to do |format|
       if @animal.save
