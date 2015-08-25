@@ -7,26 +7,21 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Idade</th>
-      <th>Descricao</th>
       <th>Tipo</th>
-      <th>Contato</th>
-      <th>Foto</th>
-      <th colspan="1"></th>
+      <th>Idade</th>
+      <th>Descricao</th>     
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @animals.each do |animal| %>
       <tr>
-        <td><%= animal.name %></td>
+        <td><%= animal.family.upcase %></td>
         <td><%= animal.age %></td>
         <td><%= animal.description %></td>
-        <td><%= animal.family.upcase %></td>
-        <td><%= animal.contact %></td>
         <td><%= image_tag(animal.image.url(:thumb)) %></td>
-        <td><%= link_to 'Exibir', show_path(animal.id), class:"btn btn-info btn-xs" %></td>
+        <td><%= link_to 'Detalhe', show_path(animal.id), class:"btn btn-info btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
