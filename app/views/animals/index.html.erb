@@ -1,6 +1,6 @@
 <div class="container">
 <div class="container">
-<h1>Animais Disponiveis</h1>
+<h1>Animais Disponiveis de <%= current_user.email%></h1>
 
 <%= form_tag(animals_path, :method => "get", class: "navbar-form", id: "search-form") do %>
     <div class="input-append">
@@ -31,9 +31,9 @@
       <tr>
         <td><%= animal.family.upcase %></td>
         <td><%= animal.name %></td>
-        <td><%= animal.age %></td>
+        <td><%= animal.age.to_s+ ' ' +animal.ageunit%></td>
         <td><%= animal.description %></td>        
-        <td><%= image_tag(animal.image.url(:thumb)) %></td>
+        <td><%= image_tag(animal.image.url(:thumb), class:"img-circle") %></td>
         <td><%= link_to 'Detalhe', animal, class:"btn btn-info btn-xs" %></td>
         <td><%= link_to 'Editar', edit_animal_path(animal), class:"btn btn-primary btn-xs"%></td>
         <td><%= link_to 'Excluir', animal, class:"btn btn-danger btn-xs", method: :delete, data: { confirm: 'Confirma?' } %></td>

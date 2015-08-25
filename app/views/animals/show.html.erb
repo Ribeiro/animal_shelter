@@ -5,7 +5,7 @@
 
 <p>
   <strong>Idade:</strong>
-  <%= @animal.age %>
+  <%= @animal.age.to_s+ ' ' +@animal.ageunit.to_s.pluralize(@animal.age)%>
 </p>
 
 <p>
@@ -25,12 +25,12 @@
 
 <p>
   <strong>Foto:</strong>
-  <%= link_to image_tag(@animal.image.url, class: 'media-object'), @animal.image.url, target: '_blank' %>
+  <%= link_to image_tag(@animal.image.url, class: 'media-object img-thumbnail'), @animal.image.url, target: '_blank' %>
 </p>
 
 <p>
-  <strong>Adotado?:</strong>
-  <%= @animal.adopted ? 'Sim' : 'Nao' %>
+  <strong>Adotado?</strong>
+  <%= @animal.isAdopted? %>
 </p>
 
 

@@ -21,6 +21,10 @@
     <%= f.number_field :age %>
   </div>
   <div class="field">
+    <%= f.label 'Unidade de Tempo:' %><br>
+    <%= f.select :ageunit, Animal.ageunits.keys %>
+  </div>
+  <div class="field">
     <%= f.label 'Descricao:' %><br>
     <%= f.text_area :description %>
   </div>

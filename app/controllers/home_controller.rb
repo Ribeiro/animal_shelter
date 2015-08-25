@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     	else
       		@animals = Animal.where(:adopted => false)
       	end
-    end
+  end
 
   	def show
   	end
