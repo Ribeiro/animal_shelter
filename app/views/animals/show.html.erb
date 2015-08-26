@@ -25,7 +25,7 @@
 
 <p>
   <strong>Foto:</strong>
-  <%= link_to image_tag(@animal.image.url, class: 'media-object img-thumbnail'), @animal.image.url, target: '_blank' %>
+  <%= link_to image_tag(@animal.image.url(:medium), class: 'custom_thumbnail'), target: '_blank' %>
 </p>
 
 <p>
