@@ -19,3 +19,18 @@
  *= require bootstrap.min
  *= require toastr
  */
+
+ .custom_thumbnail {
+	position: relative;
+	height: 250px;
+	overflow: hidden;
+
+	img {
+		min-height:200px; height:200px;
+		width:920px
+		max-width: 920px; //only set this if using Twitter Bootstrap
+		position: absolute;
+		left:50%;
+		margin-left: -460px; //half of the image size
+	}
+}

@@ -1,6 +1,9 @@
 /public/system/animals
 
 *.rbc
+*.jpg
+*.png
+*.jpeg
 capybara-*.html
 .rspec
 /log
