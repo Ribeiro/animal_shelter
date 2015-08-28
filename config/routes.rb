@@ -1,10 +1,29 @@
 Rails.application.routes.draw do
+  resources :adopters
+  get 'adopters/index'
+
+  get 'adopters/show'
+
+  get 'adopters/new'
+
+  get 'adopters/edit'
+
+  get 'adopters/create'
+
+  get 'adopters/update'
+
+  get 'adopters/destroy'
+
+  resources :adoptions
+
   devise_for :users
 
   root to: 'home#index'
   get 'home/:id', :to => 'home#show', as: :show
 
   resources :animals
+  resources :adopters
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

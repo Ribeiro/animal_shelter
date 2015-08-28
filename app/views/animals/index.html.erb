@@ -22,22 +22,23 @@
       <th>Tipo</th>
       <th>Idade</th>
       <th>Descricao</th>     
-      <th colspan="6"></th>
+      <th colspan="8"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @animals.each do |animal| %>
-      <tr>
-        <td><%= animal.family.upcase %></td>
-        <td><%= animal.name %></td>
-        <td><%= animal.age.to_s+ ' ' +animal.ageunit%></td>
-        <td><%= animal.description %></td>        
-        <td><%= image_tag(animal.image.url(:thumb), class:"img-circle") %></td>
-        <td><%= link_to 'Detalhe', animal, class:"btn btn-info btn-xs" %></td>
-        <td><%= link_to 'Editar', edit_animal_path(animal), class:"btn btn-primary btn-xs"%></td>
-        <td><%= link_to 'Excluir', animal, class:"btn btn-danger btn-xs", method: :delete, data: { confirm: 'Confirma?' } %></td>
-      </tr>
+    <tr>
+      <td><%= animal.family.upcase %></td>
+      <td><%= animal.name %></td>
+      <td><%= animal.age.to_s+ ' ' +animal.ageunit%></td>
+      <td><%= animal.description %></td>        
+      <td><%= image_tag(animal.image.url(:thumb), class:"img-circle") %></td>
+      <td><%= link_to_if(!animal.adopted, "Adotar", { controller: "adoptions", action: "new", animal_id: animal.id, adopter_id: "0" }, class:"btn btn-success btn-xs") %></td>
+      <td><%= link_to 'Detalhe', animal, class:"btn btn-info btn-xs" %></td>
+      <td><%= link_to 'Editar', edit_animal_path(animal), class:"btn btn-primary btn-xs"%></td>
+      <td><%= link_to 'Excluir', animal, class:"btn btn-danger btn-xs", method: :delete, data: { confirm: 'Confirma?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>

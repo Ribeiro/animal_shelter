@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy, :adopt]
 
   # GET /animals
   # GET /animals.json
@@ -8,13 +8,17 @@ class AnimalsController < ApplicationController
     #@animals = Animal.all.where(:user_id => current_user.id)
   #end
 
-    def index
+  def index
       if params[:search]
           @animals = Animal.search(params[:search]).where(:user_id => current_user.id).order("created_at DESC")
       else
           @animals = Animal.all.where(:user_id => current_user.id)
-        end
-    end
+      end
+  end
+
+  def adopt
+    @adopter = Adopter.new
+  end 
 
   # GET /animals/1
   # GET /animals/1.json
@@ -74,7 +78,7 @@ class AnimalsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_animal
-      @animal = Animal.find(params[:id])
+      @animal = params[:id] ? Animal.find(params[:id]) : Animal.find(params[:animal_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Adoptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Adopter</th>
+      <th>Animal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @adoptions.each do |adoption| %>
+      <tr>
+        <td><%= adoption.adopter.name %></td>
+        <td><%= adoption.animal.description %></td>
+        <td><%= link_to 'Editar', edit_adoption_path(adoption) %></td>
+        <td><%= link_to 'Desfazer', adoption, method: :delete, data: { confirm: 'Confirma?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
