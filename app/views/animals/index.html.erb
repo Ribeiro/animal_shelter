@@ -1,6 +1,7 @@
 <div class="container">
 <div class="container">
-<h1>Animais Disponiveis de <%= current_user.email%></h1>
+<h1>Meus Animais</h1> <h4>Logado como: <%= current_user.email%></h4>
+
 
 <%= form_tag(animals_path, :method => "get", class: "navbar-form", id: "search-form") do %>
     <div class="input-append">
